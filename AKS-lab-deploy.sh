@@ -14,8 +14,8 @@ read lastName
 echo Thanks $firstName. Setting up your deployment...
 
 #Remove spaces from names to avoid deployment errors
-firstNameNoSpaces="${firstName// /}"
-lastNameNoSpaces="${lastName// /}"
+firstNameNoSpaces=$(echo $firstName | tr -d ' ')
+lastNameNoSpaces=$(echo $lastName | tr -d ' ')
 
 #Begin deployment
 echo Creating resource group...
