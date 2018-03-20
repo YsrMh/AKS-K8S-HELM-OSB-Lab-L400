@@ -20,7 +20,13 @@ No Windows, no GUI's.  By that i mean you can of course use the Windows OS, but 
 1. Persistent Volumes
 1. Using Azure files
 
+# Application Insights
+1. Availability tests
+1. VSTS Load testing
 
+# Replicas
+
+# Traffic Manager
 
 ## Cluster Create
 
