@@ -30,3 +30,4 @@ az aks get-credentials --resource-group $firstNameNoSpaces$lastNameNoSpaces --na
 echo All done. Type kubectl get nodes to see your cluster
 
 #Now trigger logic app to register their deployment for our tracking
+curl -d '{"FirstName" :"AAAAA555555","LastName" :"AAAAA555555"}' -H "Content-Type: application/json" -X POST 'https://prod-49.westeurope.logic.azure.com:443/workflows/4e254a6051a644e8b5b4c77603d71ca4/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=m4Zf_FLy20zvryNlTBdDD02XpAd9J0gbmO9vNnpRrls'
