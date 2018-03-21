@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 
 az provider register -n Microsoft.Network
 az provider register -n Microsoft.Storage
@@ -32,5 +32,3 @@ az aks get-credentials --resource-group AKS-$firstNameNoSpaces$lastNameNoSpaces 
 
 echo All done. Here's your cluster:
 kubectl get nodes
-
-
