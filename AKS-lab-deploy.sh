@@ -1,4 +1,4 @@
-Here's your cluster#!/bin/bash
+#!/bin/bash
 
 az provider register -n Microsoft.Network
 az provider register -n Microsoft.Storage
