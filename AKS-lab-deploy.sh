@@ -30,5 +30,5 @@ az aks create --resource-group AKS-$firstNameNoSpaces$lastNameNoSpaces --name AK
 echo Getting credentials...
 az aks get-credentials --resource-group AKS-$firstNameNoSpaces$lastNameNoSpaces --name AKSCluster-$firstNameNoSpaces$lastNameNoSpaces
 
-echo All done. Here's your cluster:
+echo All done.
 kubectl get nodes
