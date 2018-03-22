@@ -22,7 +22,7 @@ curl -d '{"FirstName" :"$firstNameNoSpaces","LastName" :"$lastNameNoSpaces"}' -H
 
 #Begin deployment
 echo Creating resource group...
-az group create --name AKS-$firstNameNoSpaces$lastNameNoSpaces --location westeurope
+az group create --name AKS-$firstNameNoSpaces$lastNameNoSpaces --location eastus
 
 echo Creating AKS cluster...
 az aks create --resource-group AKS-$firstNameNoSpaces$lastNameNoSpaces --name AKSCluster-$firstNameNoSpaces$lastNameNoSpaces -k "1.9.2" -s Standard_B2s --node-count 2 --generate-ssh-keys
