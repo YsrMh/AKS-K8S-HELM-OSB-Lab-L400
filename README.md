@@ -491,7 +491,7 @@ In this path we'll cover making your site highly available, by setting up a seco
 
 With our availability hats on, despite the magic of Kubernetes self-healing etc., we should have a secondary site to failover to should the worst happen... 
 
-![meteor strike](http://3.bp.blogspot.com/-hqrTHot4irc/UmVJf7lp_2I/AAAAAAAAl7s/ttFvcr0ba30/s1600/meteor-strike.jpg)
+![meteor](http://3.bp.blogspot.com/-hqrTHot4irc/UmVJf7lp_2I/AAAAAAAAl7s/ttFvcr0ba30/s1600/meteor.jpg)
 
 How you go about doing this is up to you. All you need for the next step is a Public IP & DNS address that you'll provide in Traffic Manager as a secondary endpoint.
 
