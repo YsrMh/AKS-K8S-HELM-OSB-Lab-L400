@@ -25,13 +25,13 @@
 
 ---
 
-##Prerequisites
+## Prerequisites
 
 [If you want to use your local CLI for this lab instead of the CLoud Shell, view the pre-requisites here.](https://github.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/blob/master/Prerequisites.md)
 
 ---
 
-#Let's begin
+# Let's begin
 
 ## Cluster Setup (SKIP if you did this earlier this week when instructed)
 
@@ -87,7 +87,6 @@ resources on your account on behalf of Kubernetes.
     export AZURE_CLIENT_ID=<AppId>
     export AZURE_CLIENT_SECRET=<Password>
     ```
-
     **PowerShell**
     ```console
     $env:AZURE_TENANT_ID = "<Tenant>"
@@ -134,7 +133,7 @@ Common Helm commands:
 ---
 ## Deploy Vanilla WordPress and MariaDB (local instance of MariaDB in a container)
 
-**Bash**
+   **Bash**
 
     helm install --name my-release \
     --set wordpressUsername=admin,wordpressPassword=password,mariadb.mariadbRootPassword=secretpassword \
@@ -149,15 +148,14 @@ That's it! Run the following command to find out when your service is ready:
 
 >Note: The -w parameter watches the new output from the kubectl get command. If you would like to exit this mode, press CLTR+C.
 
-When ready, run the following command to find out the external ip for your wordpress service:
+When ready, run the following command to find out the external IP for your wordpress service:
 
    **Bash**
 
     kubectl get svc --namespace default my-release-wordpress
 
-Now, type http://externalip/admin into your browser, replacing 'externalip' with the ip you just retrieved, and log in with the username and password you set earlier. 
-
-Feel free at this point to 'choose your next adventure' or try deploying Wordpress via one of the other methods below.
+Now, type http://[externalip]/admin into your browser, replacing [externalip] with the IP you just retrieved, and log in with the username and password you set earlier. 
+Feel free at this point to skip to the 'Choose your adventure...' section if you want to stick with a basic Wordpress site and local DB, or try deploying Wordpress via one of the other methods below utilising Azure storage.
 
 ---
 
@@ -312,14 +310,14 @@ Note:  While provisioning WordPress and Azure Database for MySQL using Helm, all
 ### Navigating to WordPress
 
 1. Obtain the LoadBalancer IP Address from your WordPress Kubernetes Service
-
-```console
-kubectl get svc --namespace osba-quickstart -w osba-quickstart-wordpress
-```
-
+   
+   ```console
+   kubectl get svc --namespace osba-quickstart -w osba-quickstart-wordpress
+   ```
+   
 1. Open a web browser and navigate to the IP address.
 
-![Wordpress in a browser](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/wp-browser.PNG)
+   ![Wordpress in a browser](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/wp-browser.PNG)
 
 ### Login to WordPress
 
@@ -327,7 +325,7 @@ kubectl get svc --namespace osba-quickstart -w osba-quickstart-wordpress
     ```console
     kubectl get svc --namespace osba-quickstart osba-quickstart-wordpress -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
     ```
-Now navigate to the above IP address and you should see your WP homepage. Well done!
+    Now navigate to the above IP address and you should see your WP homepage. Well done!
 
 1. To retrieve the password, run this command:
     
@@ -362,21 +360,19 @@ Now that you've got your Wordpress site up and running, there are several paths 
 
 Choose wisely...
 
----
-
 # Path 1: Explore and configure Wordpress
 Wordpress has over 50,000 plugins available in their marketplace that enable you to expand and customise your site in a number of ways.  Simply navigate to Plugins on the left menu, and choose 'Add New'.  Below are some suggestions for getting started - have fun!
 
 ![Install Plugins](https://wordpressfilestore.blob.core.windows.net/images/installplugins.png)
 
- ##Caching / Static Site Generators:
+## Caching / Static Site Generators:
 
-#Simply Static
+### Simply Static
 
 [Simply Static](https://en-gb.wordpress.org/plugins/simply-static/) is a static site generator for WordPress that helps you create a static site that you can serve separately from your WordPress installation. This provides a couple benefits. One, this allows you to keep WordPress in a secure location that no one can access but you. Two, your static site is going to be really, really fast.
 
 
-#WP Super Cache
+### WP Super Cache
 
 
 [WP Super Cache](https://en-gb.wordpress.org/plugins/wp-super-cache/) generates static html files from your dynamic WordPress blog. After a html file is generated your webserver will serve that file instead of processing the comparatively heavier and more expensive WordPress PHP scripts.
@@ -387,13 +383,13 @@ The static html files will be served to the vast majority of your users:
 *Users who have not left a comment on your blog.
 *Or users who have not viewed a password protected post.
 
-##Telemetry
+## Telemetry
 
 The [Application Insights](https://en-gb.wordpress.org/plugins/application-insights/) plugin enables you to pass it your App Insights instrumentation key (available in the Azure portal) to gain rich insights and telemetry. 
 
 ![Application Insights](https://wordpressfilestore.blob.core.windows.net/images/appinsights.png)
 
-##Back ups
+## Backups
 
 The [All-in One WP Migration](https://en-gb.wordpress.org/plugins/all-in-one-wp-migration/) plugin exports your WordPress website including the database, media files, plugins and themes with no technical knowledge required. Upload your site to a different location with a drag and drop in to WordPress.
 
