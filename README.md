@@ -293,25 +293,25 @@ helm install azure/wordpress --name osba-quickstart --namespace osba-quickstart
 
 3. **Bash or PowerShell**
     ```console
-    helm install --name osba-quickstart azure/wordpress --set persistence.storageClass=azurefiles --set             persistence.accessMode=ReadWriteMany --set livenessProbe.initialDelaySeconds=850 --set readinessProbe.initialDelaySeconds=920 --        namespace osba-quickstart
+    helm install --name osba-quickstart azure/wordpress --set persistence.storageClass=azurefiles --set persistence.accessMode=ReadWriteMany --set livenessProbe.initialDelaySeconds=850 --set readinessProbe.initialDelaySeconds=920 --namespace osba-quickstart
     ```
-
-### Monitoring WordPress installation 
 
 >**Note**: When deploying the helm package with Azure Files, it can take around 18 minutes before the container is ready (probably due to the time it takes to provision Azure MySQL, Azure File Share and setup/copy the appropiate files). With Azure Disk, it takes around 12 minutes. In the meantime, feel free to have a glance at the next steps.
 
-1. Use the following command to tell when WordPress is ready:
+### Monitoring WordPress installation 
 
-    ```console
-    $ kubectl get deploy osba-quickstart-wordpress -n osba-quickstart -w
+Use the following command to tell when WordPress is ready:
 
-    NAME                        DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-    osba-quickstart-wordpress   1         1         1            0           1m
-    ...
-    osba-quickstart-wordpress   1         1         1            1           18m
-    ```
+```console
+$ kubectl get deploy osba-quickstart-wordpress -n osba-quickstart -w
 
-Note:  While provisioning WordPress and Azure Database for MySQL using Helm, all of the required resources are created in Kubernetes at the same time. As a result of these requests, Service Catalog will create a secret containing the the binding credentials for the database. This secret will not be created until after the Azure Database for MySQL is created, however. The WordPress container will depend on this secret being created before the container will fully start. Kubernetes and Service Catalog both employ a retry backoff, so you may need to wait several minutes for everything to be fully provisioned.
+NAME                        DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+osba-quickstart-wordpress   1         1         1            0           1m
+...
+osba-quickstart-wordpress   1         1         1            1           18m
+```
+
+>**Note**: While provisioning WordPress and Azure Database for MySQL using Helm, all of the required resources are created in Kubernetes at the same time. As a result of these requests, Service Catalog will create a secret containing the the binding credentials for the database. This secret will not be created until after the Azure Database for MySQL is created, however. The WordPress container will depend on this secret being created before the container will fully start. Kubernetes and Service Catalog both employ a retry backoff, so you may need to wait several minutes for everything to be fully provisioned.
 
 ### Navigating to WordPress
 
@@ -349,7 +349,7 @@ Note:  While provisioning WordPress and Azure Database for MySQL using Helm, all
     [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($password))
      ```
 
-1. Login using the username `user` and the password you just retrieved
+1. Login using the username `user` and the password you just retrieved.
 
 ## Uninstall WordPress
 
@@ -357,7 +357,7 @@ If you want to uninstall WordPress that was installed by Helm (e.g. you decided 
 
 ## Well done, you've completed Campaign Mode. 
 
-Once you are online and happy with the Wordpress deployment service you have chosen, please add a DNS entry to your static ip address found within your Kubernetes cluster (Resource Group MC_XXX) and inform the proctors of your Traffic Manager's URL.
+Once you are online and happy with the Wordpress deployment service you have chosen, please add a DNS entry to your Static Azure Public IP address found within your Kubernetes cluster (look for a Resource Group in the Azure Portal following the format MC_XXX) and inform the proctors of your URL. Alternatively, if you plan on following the high availability path below where you'll set up Traffic Manager, do that first and provide the proctors with the Traffic Manager DNS name instead.
 
 ---
 # Now it's time to choose your own adventure...
