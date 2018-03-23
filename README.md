@@ -338,7 +338,7 @@ Now navigate to the above IP address and you should see your WP homepage. Well d
 
 ## Well done, you've completed Campaign Mode. 
 
-**Once you are online and happy with the Wordpress deployment service you have chosen, please add a DNS entry to your static ip address found within your Kubernetes cluster (Resource Group MC_XXX) and inform the proctors of your Traffic Manager's URL.
+Once you are online and happy with the Wordpress deployment service you have chosen, please add a DNS entry to your static ip address found within your Kubernetes cluster (Resource Group MC_XXX) and inform the proctors of your Traffic Manager's URL.
 ---
 
 # Now it's time to choose your own adventure...
