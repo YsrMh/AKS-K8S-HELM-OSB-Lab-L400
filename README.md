@@ -1,8 +1,14 @@
-# Azure Container Service (AKS) - Kubernetes Wordpress Lab.  Level 400
+# Azure Container Service (AKS) - Wordpress on Kubernetes  
+### Lab - Level 400
+
+# The Wordpress Showdown
+Welcome to the Wordpress Showdown, a battle of Wordpress sites running on Kubernetes. We will be guiding you through deploying Wordpress sites on Kubernetes using the Azure Container Service (AKS), and then cover some optional (but highly recommended) pointers on optimising it, so it can go head to head against others' sites. We'll be subjecting them to load and availability testing once you've completed 'Campaign Mode' and awarding a prize to the best performing and most highly available site.
+
+Good luck!
 
 ## Contents
 
-### Campaign mode: Deploying Wordpress in Containers
+### Campaign Mode: Deploying Wordpress in Containers
 1. Using Azure Container Service (AKS)
 1. Working with OSBA and Helm
 1. Deploying Wordpress & Managed MySQL
