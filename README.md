@@ -43,7 +43,7 @@ Run the following two commands in the Azure Bash Cloud Shell:
 curl -o ~/clouddrive/aks-create.sh https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/AKS-lab-deploy.sh
   
 sh ~/clouddrive/aks-create.sh
-``` 
+ ``` 
 
 ## Configure your Azure account
 
@@ -75,9 +75,9 @@ resources on your account on behalf of Kubernetes.
     ```console
     az ad sp create-for-rbac --name osba-quickstart -o table
     ```
->Note: If it says the name already exists, choose another name.
+    >Note: If it says the name already exists, choose another name.
 
-![Azure Service Principal](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/ad_sp.PNG)
+    ![Azure Service Principal](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/ad_sp.PNG)
 
 1. Save the values from the command output in environment variables:
 
@@ -96,10 +96,10 @@ resources on your account on behalf of Kubernetes.
 
 ### Obtain the credentials for your AKS Cluster
 
-1. This will allow other command dependencies to execute the relevant commands into your Kubernetes cluster.
-    ```console
-    az aks get-credentials -n [NAME-OF-YOUR-AKS-CLUSTER] -g [NAME-OF-YOUR-AKS-RESOURCE-GROUP]
-    ```
+This will allow other command dependencies to execute the relevant commands into your Kubernetes cluster.
+```console
+az aks get-credentials -n [NAME-OF-YOUR-AKS-CLUSTER] -g [NAME-OF-YOUR-AKS-RESOURCE-GROUP]
+```
 
 ### Installing packages ("charts") with Helm
 
@@ -124,13 +124,14 @@ Common Helm commands:
 * `helm install`: upload the chart to Kubernetes cluster
 * `helm list`: list releases of charts
 
-1. Before we can use Helm to install applications such as Service Catalog (which we'll cover in the next step) and
-    WordPress on the cluster, we first need to prepare the cluster to work with Helm:
-    ```console
-    helm init
-    ```
+Before we can use Helm to install applications such as Service Catalog (which we'll cover in the next step) and
+WordPress on the cluster, we first need to prepare the cluster to work with Helm:
+```console
+helm init
+```
 
 ---
+
 ## Deploy Vanilla WordPress and MariaDB (local instance of MariaDB in a container)
 
    **Bash**
