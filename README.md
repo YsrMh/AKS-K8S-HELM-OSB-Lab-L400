@@ -315,6 +315,7 @@ Note:  While provisioning WordPress and Azure Database for MySQL using Helm, all
 
 ```console
 kubectl get svc --namespace osba-quickstart -w osba-quickstart-wordpress
+```
 
 1. Open a web browser and navigate to the IP address.
 
