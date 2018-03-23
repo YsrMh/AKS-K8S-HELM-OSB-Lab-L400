@@ -239,20 +239,24 @@ To get started with OSBA, we need to first install the Kubernetes Service Catalo
     po/osba-redis-5b44fc9779-hgnck                  1/1       Running   0          9d
     ```
 
-1. Now that we have a cluster with Open Service Broker for Azure, we can deploy
-
 Now that we have a cluster with Open Service Broker for Azure, we can deploy
 WordPress to Kubernetes and OSBA will handle provisioning an Azure Database for MySQL
 and binding it to our WordPress installation.
 
-> **NOTE**: Both of the options below use Azure Storage mounted as Persistent Volumes (PV) in Kubernetes to persist WordPress data and share them across multiple containers. If you re-create a container without a PV, the data within the container is lost. Thus, WP media files need to be preserved. The issue with Azure Disks is that you can only mount them to one given cluster node at any given time. In other words, you cannot scale your application across nodes as your pods on the other nodes will not be able to mount the drives. Azure Files, on the other hand, supports being mounted to multiple nodes, but isn't nearly as performant (as of writing this lab). So choose wisely...
+### Choose between Azure Files or Azure Disks
 
-### Option 1: Install WordPress using Azure Disks as persistent storage
+Both of the options below use Azure Storage mounted as Persistent Volumes (PV) in Kubernetes to persist WordPress data and share them across multiple containers. If you re-create a container without a PV, the data within the container is lost. Thus, WP media files need to be preserved. 
+
+The issue with Azure Disks is that you can only mount them to one given cluster node at any given time. In other words, you cannot scale your application across nodes as your pods on the other nodes will not be able to mount the drives. Azure Files, on the other hand, supports being mounted to multiple nodes, but isn't nearly as performant (as of writing this lab). 
+
+So choose wisely...
+
+#### Option 1: Install WordPress using Azure Disks as persistent storage
 ```console
 helm install azure/wordpress --name osba-quickstart --namespace osba-quickstart
 ```
 
-### Option 2: Install WordPress using Azure Files as persistent storage
+#### Option 2: Install WordPress using Azure Files as persistent storage
 
 1. Create an Azure Storage account. Although AKS can dynamically provision Azure disks, and Azure files within a storage account, you still need to provision an Azure storage account. Furthermore, Azure disks already has a Storage Class provisioned with AKS, but not for Azure Files.
 
