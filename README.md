@@ -245,6 +245,8 @@ Now that we have a cluster with Open Service Broker for Azure, we can deploy
 WordPress to Kubernetes and OSBA will handle provisioning an Azure Database for MySQL
 and binding it to our WordPress installation.
 
+> **NOTE**: Both of the options below use Azure Storage mounted as Persistent Volumes (PV) in Kubernetes to persist WordPress data and share them across multiple containers. If you re-create a container without a PV, the data within the container is lost. Thus, WP media files need to be preserved. The issue with Azure Disks is that you can only mount them to one given cluster node at any given time. In other words, you cannot scale your application across nodes as your pods on the other nodes will not be able to mount the drives. Azure Files, on the other hand, supports being mounted to multiple nodes, but isn't nearly as performant (as of writing this lab). So choose wisely...
+
 ### Option 1: Install WordPress using Azure Disks as persistent storage
 ```console
 helm install azure/wordpress --name osba-quickstart --namespace osba-quickstart
@@ -288,8 +290,6 @@ parameters:
 ```console
 helm install --name osba-quickstart azure/wordpress --set persistence.storageClass=azurefiles --set persistence.accessMode=ReadWriteMany --set livenessProbe.initialDelaySeconds=850 --set readinessProbe.initialDelaySeconds=920 --namespace osba-quickstart
 ```
-
-> **NOTE**: Both of the options above, use Azure Storage mounted as Persistent Volumes (PV) in Kubernetes to persist WordPress data and share them across multiple containers i.e if you re-created a container without a PV, the data within the container is lost. Thus, WP media files need to be perserved. The issue with Azure Disks, is you can only mount them to one given cluster node at any given time. In other words, you cannot scale your application across nodes as your pods on the other nodes will not be able to moun the drives. However, Azure files supports being mounted to multiple nodes.
 
 ### Monitoring WordPress installation 
 
