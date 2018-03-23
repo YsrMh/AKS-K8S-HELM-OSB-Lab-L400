@@ -260,40 +260,41 @@ helm install azure/wordpress --name osba-quickstart --namespace osba-quickstart
 
 1. Create an Azure Storage account. Although AKS can dynamically provision Azure disks, and Azure files within a storage account, you still need to provision an Azure storage account. Furthermore, Azure disks already has a Storage Class provisioned with AKS, but not for Azure Files.
 
->**Note:** The name of your resource group will have the prefix of MC_XXX, use this one which has all of Kubernetes Azure resources provisioned in it. Using the resource group which only has your cluster resource in it will fail (i.e do not choose the resource group which only shows one resoure for your K8s cluster).
+    >**Note:** The name of your resource group will have the prefix of MC_XXX, use this one which has all of Kubernetes Azure resources     provisioned in it. Using the resource group which only has your cluster resource in it will fail (i.e do not choose the resource     group which only shows one resoure for your K8s cluster).
 
-**Bash**
-```console
-storageAccountName=$(az storage account create --resource-group [NAME-OF-RESOURCE-GROUP] --name aksazurestorageacc$RANDOM --location [LOCATION] --sku Standard_LRS --query name | sed 's/\"//g')
-```
+    **Bash**
+    ```console
+    storageAccountName=$(az storage account create --resource-group [NAME-OF-RESOURCE-GROUP] --name aksazurestorageacc$RANDOM --location     [LOCATION] --sku Standard_LRS --query name | sed 's/\"//g')
+    ```
 
-**PowerShell**
-```console
-$storageAccountName = $(az storage account create --resource-group [NAME-OF-RESOURCE-GROUP] --name aksazurestorageacc$(Get-Random -Maximum 8000 -Minimum 400) --location [LOCATION]  --sku Standard_LRS --query name) -replace '"',""
-```
-**Bash or PowerShell**
-```console
-echo 'kind: StorageClass
-apiVersion: storage.k8s.io/v1
-metadata:
-  name: azurefiles
-  labels:
-     kubernetes.io/cluster-service: "true"
-provisioner: kubernetes.io/azure-file
-mountOptions:
-  - dir_mode=0777
-  - file_mode=0775
-  - uid=1
-  - gid=1
-parameters:
-  storageAccount: '$storageAccountName > azurefilestorageclass.yaml
+    **PowerShell**
+    ```console
+    $storageAccountName = $(az storage account create --resource-group [NAME-OF-RESOURCE-GROUP] --name aksazurestorageacc$(Get-Random -     Maximum 8000 -Minimum 400) --location [LOCATION]  --sku Standard_LRS --query name) -replace '"',""
+    ```
+2. **Bash or PowerShell**
+    ```console
+    echo 'kind: StorageClass
+    apiVersion: storage.k8s.io/v1
+    metadata:
+      name: azurefiles
+      labels:
+         kubernetes.io/cluster-service: "true"
+    provisioner: kubernetes.io/azure-file
+    mountOptions:
+      - dir_mode=0777
+      - file_mode=0775
+      - uid=1
+      - gid=1
+    parameters:
+      storageAccount: '$storageAccountName > azurefilestorageclass.yaml
 
-  kubectl create -f azurefilestorageclass.yaml
-```
+      kubectl create -f azurefilestorageclass.yaml
+    ```
 
-```console
-helm install --name osba-quickstart azure/wordpress --set persistence.storageClass=azurefiles --set persistence.accessMode=ReadWriteMany --set livenessProbe.initialDelaySeconds=850 --set readinessProbe.initialDelaySeconds=920 --namespace osba-quickstart
-```
+3. **Bash or PowerShell**
+    ```console
+    helm install --name osba-quickstart azure/wordpress --set persistence.storageClass=azurefiles --set             persistence.accessMode=ReadWriteMany --set livenessProbe.initialDelaySeconds=850 --set readinessProbe.initialDelaySeconds=920 --        namespace osba-quickstart
+    ```
 
 ### Monitoring WordPress installation 
 
