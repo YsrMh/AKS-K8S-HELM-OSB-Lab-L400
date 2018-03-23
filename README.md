@@ -404,9 +404,45 @@ The [All-in One WP Migration](https://en-gb.wordpress.org/plugins/all-in-one-wp-
 
 ---
 
-# Path 2: Test your app's performance
-1. Availability tests
-1. VSTS Load testing & Kubernetes scaling
+# Path 2: Test your app's performance and availability
+
+Here we'll cover two ways to test your site, which you can use to optimise it and improve your chances of winning the challenge. This will cover testing the availability of your app using App Insights and testing its performance through VSTS load testing. Without further ado...
+
+## Using App Insights to test availability
+
+We can use Azure Application Insights to send web requests to our application at regular intervals from different points around the world, and it alerts us if our application isn't responding, or is having a little snooze before it does. Let's get started.
+
+### Create your App Insights resource
+
+1. Head to the Azure portal and type Application Insights into the marketplace, and click 'Create'. 
+1. Fill in the parameters, selecting 'General' for your app type and the resource group and location you've been using previously
+
+   ![AppInsights](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/AppInsights.PNG)
+
+### Create an availability test
+
+1. Once you've created the App Insights Resource, go onto its blade and select 'Availability', then click 'Add Test'
+1. Configure a new test using the below as a guideline:
+ -**The URL** can be any web page you want to test, but it must be visible from the public internet. Point this to either your AKS cluster's DNS address or your Traffic Manager DNS if you've done Path 3 already
+ -**Parse dependent requests**: If this option is checked, the test requests images, scripts, style files, and other files that are part of the web page under test. If the option is not checked, the test only requests the file at the URL you specified.
+ -**Enable retries**: If this option is checked, when the test fails, it is retried after a short interval. A failure is reported only if three successive attempts fail.
+ -**Test frequency**: Sets how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested on average every minute.
+ -**Test locations** are the places from where our servers send web requests to your URL. Choose more than one so that you can distinguish problems in your website from network issues. You can select up to 16 locations.
+ -**Success criteria**:
+ Test timeout: Decrease this value to be alerted about slow responses. The test is counted as a failure if the responses from your site have not been received within this period. If you selected Parse dependent requests, then all the images, style files, scripts, and other dependent resources must have been received within this period.
+ HTTP response: The returned status code that is counted as a success. 200 is the code that indicates that a normal web page has been returned.
+ Content match: a string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it.
+ -**Alerts** are, by default, sent to you if there are failures in three locations over five minutes.
+
+   ![AppInsightsAvail](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/AppInsightsAvail.PNG)
+   
+### Analyse the output
+
+This will take a little while before it starts to show results (around 10 mins), so proceed with the next step and come back to this blade in a little while if you wish. When it's populated you should get something like the below:
+
+    ![AvailabilityTest](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/AvailabilityTest.PNG)
+
+## Using VSTS to perform Load testing to test performance
 
 ---
 
@@ -483,7 +519,6 @@ Next, we need to set up the endpoints that Traffic Manager will probe and direct
     Open up the portal and search for your Traffic Manager in the search bar. Once you've selected it, click on Endpoints in the left-hand menu, then click `Add`.
 
     Fill in the parameters like so:
-
     1. `Type`: Azure Endpoint
 
     2. `Name`: call this something like 'Cluster1"
@@ -514,7 +549,7 @@ And that's it. Now, if you head to the Traffic Manager URL you set up (you can f
     
 2. Repeat this a couple more times and you should find that this remains the same, because the primary endpoint is still operational.
 
-    ![nslookup1](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/nslookup1.PNG)
+    ![nslookup1](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/Nslookup1.PNG)
 
 3. Now, let's modify our TM profile to explore this. Head back to the Azure portal, and in your Traffic Manager blade, click on `Configuration`. 
 
@@ -524,7 +559,7 @@ And that's it. Now, if you head to the Traffic Manager URL you set up (you can f
 
     You should find that it alternates between the two endpoints. This is because as we haven't specified the individual weighting for our endpoints, they're both set to '1' - meaning that they have equal weighting and thus should recieve an equal amount of our requests.
 
-    ![nslookup2](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/nslookup2.PNG)
+    ![nslookup2](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/Nslookup2.PNG)
 
 It's worth noting here that we can view how all of the various requests are being handled at a global scale in a nice visual output called Traffic View. It takes approximately 24 hours after turning this on however before this starts yielding an output, so something for you to explore after this lab!
 
