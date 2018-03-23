@@ -27,7 +27,7 @@ Good luck!
 1. VSTS Load testing & Kubernetes scaling
 
 #### Path 3: Make your app highly available
-1. Setting up a Traffic Manager profile
+1. Setting up a secondary site
 1. Configuring endpoints
 1. Testing different routing methods
 
@@ -376,7 +376,11 @@ If you want to uninstall WordPress that was installed by Helm (e.g. you decided 
 
 ## Well done, you've completed Campaign Mode. 
 
-Once you are online and happy with the Wordpress deployment service you have chosen, please add a DNS entry to your Static Azure Public IP address found within your Kubernetes cluster (look for a Resource Group in the Azure Portal following the format MC_XXX) and inform the proctors of your URL. Alternatively, if you plan on following the high availability path below where you'll set up Traffic Manager, do that first and provide the proctors with the Traffic Manager DNS name instead.
+Once you are online and happy with the Wordpress deployment service you have chosen, you need to set it up with the Traffic Manager profile we provisioned earlier, so that it goes live and the proctors can register it as available in our monitoring. 
+
+Because TM is DNS-based, we need to make sure we have a Fully-Qualified Domain Name (FQDNs) for our kubernetes app and not just an IP address. For your site, you need to configure DNS for the Public IP address that was created as part of your cluster. You can do this in the portal by finding the Public IP that's created in the WC_XXX resource group that contains the AKS service.
+
+Once you've done that, find your Traffic Manager that was provisioned by a script earlier and click 'Add endpoint'. Then put your cluster's DNS name in there. Once you've hit save, your site should be up and live for the proctors to monitor (which you can test by visiting your Traffic Manager URL. Now be careful not to take it down, as it will affect your score! (If you need more help configuring TM, see Path 2.)
 
 ---
 # Now it's time to choose your own adventure...
@@ -524,23 +528,19 @@ Make sure you think about regional failures etc. when doing this, and how you ca
 
 Once you've figured this out, it's time to set up our Traffic Manager.
 
-## Setting up a Traffic Manager profile
+## Viewing your Traffic Manager profile
 
 Now that we've got primary and secondary sites up and running, we need to make sure that incoming requests are directed between them appropriately for high availability. That's where Traffic Manager comes in. 
 
 We'll use it to create DNS-based routing to our back-end endpoints, and Traffic Manager will then monitor these so that should one of our sites go down, traffic will be routed to the other.
 
-Let's start by setting up a Traffic Profile for our sites. 
+Normally you'd have to create a Traffic Manager profile first, but we did this for you earlier when you ran the script at the start of the lab. 
 
-Enter the following Azure CLI command into your terminal to provision this, adding in a unique name and specifying the resource group you've already created (which should be "AKS-YourfirstnameYourlastname"), as well as a unique DNS name (for example "JamesG-AKS-Wordpress" the .trafficmanager.net suffix will be added automatically during deployment):
+>Note: For future reference, or in case you can't find a Traffic Manager provisioned in your Azure subscription, you can enter the following Azure CLI command into your terminal to provision this: `az network traffic-manager profile create -n [YOUR-TRAFFIC-MGR-NAME] -g [YOUR-RESOURCE-GROUP] --routing-method Priority --unique-dns-name [UNIQUE-DNS-NAME]`
 
-```console
-az network traffic-manager profile create -n [YOUR-TRAFFIC-MGR-NAME] -g [YOUR-RESOURCE-GROUP] --routing-method Priority --unique-dns-name [UNIQUE-DNS-NAME]
-```
+Find your traffic manager profile that was created earlier by searching in the Azure portal. It should be your team name followed by a radnom string of numbers.
 
-![TrafficManagerDeploy](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/TrafficManagerDeploy.PNG)
-
-Notice we've specified Priority as the routing method. This determines how Traffic Manager will route the traffic to our endpoints. The four main options here are as follows:
+Once you've opened it up, you'll see that in Configuration, we've specified Priority as the current routing method. This determines how Traffic Manager will route the traffic to our endpoints. The four main options here are as follows:
 
 - `Priority`: Select Priority when you want to use a primary service endpoint for all traffic, and provide backups in case the primary or the backup endpoints are unavailable.
 
@@ -552,38 +552,34 @@ Notice we've specified Priority as the routing method. This determines how Traff
 
 We'll leave this as Priority for now, which will send the user to the endpoint we define as the priority, unless the health probing determines it's down, in which case the secondary will come into play.
 
-## Setting up Traffic Manager endpoints
+## Setting up your secondary Traffic Manager endpoint
 
-Next, we need to set up the endpoints that Traffic Manager will probe and direct to.   
+Next, we need to set up the secondary endpoint that Traffic Manager will probe and direct to.   
 
-1. Before we can do this, because TM is DNS-based, we need to make sure we have Fully-Qualified Domain Names (FQDNs) for our apps and not just IP addresses. For the primary site, you need to configure DNS for the Public IP address that was created as part of your cluster. You can do this in the portal - and I'll leave you to figure out how! 
-
-    Depending on your choice of secondary site, you may or may not have DNS enabled on your Public IP for that site. When you go to the next step Traffic Manager will handily tell you if not so you can go and rectify it.
+1. Depending on your choice of secondary site, you may or may not have DNS enabled on your Public IP for that site. Traffic Manager needs this enabled before you can use it. When you go to the next step Traffic Manager will handily tell you if not so you can go and rectify it.
 
     If you've used App Service you don't need to worry as this is natively supported as an Azure endpoint.  
 
-2. Now that that's sorted, we can add the endpoints to Traffic Manager. We'll head to the portal for this as it means we won't have to dig around for the resource URIs to add them via the CLI. Plus it'll be nice to have a break from staring at a terminal.
+2. Head to the portal for this as it means we won't have to dig around for the resource URIs to add them via the CLI. Plus it'll be nice to have a break from staring at a terminal.
 
     Open up the portal and search for your Traffic Manager in the search bar. Once you've selected it, click on Endpoints in the left-hand menu, then click `Add`.
 
     Fill in the parameters like so:
     1. `Type`: Azure Endpoint
 
-    2. `Name`: call this something like 'Cluster1"
+    2. `Name`: call this something like 'Secondary'
 
-    3. `Target resource type`: Public IP address
+    3. `Target resource type`: Public IP address (or App Service if you used that)
 
-    4. `Target resource`: from the list, find one of your endpoints, which will be named 'kubernetes-' followed by a random string of numbers ###unless this changes
+    4. `Target resource`: from the list, find your secondary endpoint
 
-    5. `Priority`: leave this as "1"
+    5. `Priority`: set this to "2"
 
     Click `OK`
 
-3. That's one added. Now repeat the above steps to add your secondary endpoint, changing `Priority` to "2" - if you've used App Service you'll also see that as an option instead of Public IP address, so you can use that instead.
+3. Once you've done this, Traffic Manager will begin to probe your endpoints, and you'll see the 'Monitor Status' attribute change to Online after a couple of minutes (as long as your cluster is up and running).
 
-    Once you've done this, Traffic Manager will begin to probe your endpoints, and you'll see the 'Monitor Status' attribute change to Online after a couple of minutes (as long as yur cluster is up and running).
-
-And that's it. Now, if you head to the Traffic Manager URL you set up (you can find this on the Overview pane) and head to it in a new tab, you should be greeted by your blog. In the backend, Traffic Manager has checked if your primary endpoint up and running, then routed you through to it if so.
+And that's it. Now, if you head to the Traffic Manager URL (you can find this on the Overview pane) and head to it in a new tab, you should be greeted by your blog. In the backend, Traffic Manager has checked if your primary endpoint up and running, then routed you through to it if so.
 
 ## Testing Traffic Manager
 
