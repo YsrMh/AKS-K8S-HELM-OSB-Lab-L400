@@ -364,7 +364,7 @@ Once you are online and happy with the Wordpress deployment service you have cho
 
 Now that you've got your Wordpress site up and running, there are several paths you can take to optimise it, make it highly available, and boost its performance. It's up to you which of these paths you take, and in what order, depending on what interests you. 
 
-![Paths](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/Paths.PNG)
+![Paths](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/Paths.jpg)
 
 Choose wisely...
 
