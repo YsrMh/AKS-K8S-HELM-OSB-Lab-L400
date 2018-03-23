@@ -448,7 +448,7 @@ We can use Azure Application Insights to send web requests to our application at
 
 1. Once you've created the App Insights Resource, go onto its blade and select 'Availability', then click 'Add Test'
 1. Configure a new test using the below as a guideline:
- - **The URL** can be any web page you want to test, but it must be visible from the public internet. Point this to either your AKS cluster's DNS address or your Traffic Manager DNS if you've done Path 3 already
+ - **The URL** can be any web page you want to test, but it must be visible from the public internet. Point this to your Traffic Manager URL
  - **Parse dependent requests**: If this option is checked, the test requests images, scripts, style files, and other files that are part of the web page under test. If the option is not checked, the test only requests the file at the URL you specified.
  - **Enable retries**: If this option is checked, when the test fails, it is retried after a short interval. A failure is reported only if three successive attempts fail.
  - **Test frequency**: Sets how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested on average every minute.
@@ -479,7 +479,7 @@ Sticking within our App Insights resource, let's configurate a performance test 
 
 1. On the left-hand menu, click on 'Performance Testing' under the Configure subheading.
 1. Click 'Set Account', where you need to pick your VSTS account. You should have one as part of your internal subscription, but if not, go and create one and come back to this.
-1. Now click 'New Test' and click on 'Manual Test', then enter the URL for either your cluster's Public IP DNS or your Traffic Manager DNS. 
+1. Now click 'New Test' and click on 'Manual Test', then enter the URL for your Traffic Manager endpoint. 
 1. Select the region and amount of user load you want to test with, then click 'Run Test'
 
   ![PerformanceTestConfig](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/PerformanceTestConfig.PNG)
@@ -500,7 +500,7 @@ Use these findings to adjust your failover strategy and scaling accordingly (see
 
 # Path 3: Make your app highly available
 
-In this path we'll cover making your site highly available, by setting up a secondary site and using Traffic Manager to route requests between them in the best way.
+In this path we'll cover making your site highly available, by setting up a secondary site in Traffic Manager to route requests between them in the best way.
 
 ## Create a secondary Wordpress site
 
