@@ -444,7 +444,28 @@ This will take a little while before it starts to show results (around 10 mins),
 
 ![AvailabilityResults](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/AvailabilityResults.PNG)
 
-## Using VSTS to perform Load testing to test performance
+Hover over any of the green/red dots to see the test timestamp, test duration, location, and test name. Click through any dot in the scatter plot to see the details of the test result. 
+
+If you have any failures, indicated in red, hovering over this will give you information on the failure so you can go and address it. As you make changes to your app, use this useful output as a guide on how your availability is being affected. (We will be monitoring this too remember!)
+
+## Using App Insights with VSTS to perform Load testing
+
+Sticking within our App Insights resource, let's configurate a performance test to, well, test the performance of our app. This will give us an idea of the latency of response, the amount of traffic it can take before a failure etc. so we can identify performance improvements and failover opportunities to make this better.
+
+### Configure a performance test
+
+1. On the left-hand menu, click on 'Performance Testing' under the Configure subheading.
+1. Click 'Set Account', where you need to pick your VSTS account. You should have one as part of your internal subscription, but if not, go and create one and come back to this.
+1. Now click 'New Test' and click on 'Manual Test', then enter the URL for either your cluster's Public IP DNS or your Traffic Manager DNS. 
+1. Select the region and amount of user load you want to test with, then click 'Run Test'
+
+  ![PerformanceTestConfig](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/PerformanceTestConfig.PNG)
+
+That will then get queued for testing, which will take around 10-15 mins. Again, consider trying out another path and then coming back to check on this.
+
+When your test has ran, you should get an output like so:
+
+Use these findings to adjust your failover strategy and scaling accordingly (see the other paths for help with this), and then come back and keep testing your improvements. Good luck!
 
 ---
 
