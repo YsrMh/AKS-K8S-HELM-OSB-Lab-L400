@@ -2,7 +2,7 @@
 echo Please input your team name.
 read teamName
 
-teamName=$teamName$RANDOM
+teamName="akschallenge$teamName"
 az group create -n AksChallengeTrafficManager -l westeurope
 az network traffic-manager profile create -n aksChallenge -g AksChallengeTrafficManager --routing-method Priority --unique-dns-name $teamName
 az network traffic-manager endpoint create --profile-name aksChallenge -n Primary -g aksChallengeTrafficManager --type externalEndpoints --target "samofthing.com" --priority 1
