@@ -309,6 +309,16 @@ helm install --name osba-quickstart azure/wordpress --set persistence.storageCla
 
 Note:  While provisioning WordPress and Azure Database for MySQL using Helm, all of the required resources are created in Kubernetes at the same time. As a result of these requests, Service Catalog will create a secret containing the the binding credentials for the database. This secret will not be created until after the Azure Database for MySQL is created, however. The WordPress container will depend on this secret being created before the container will fully start. Kubernetes and Service Catalog both employ a retry backoff, so you may need to wait several minutes for everything to be fully provisioned.
 
+### Navigating to WordPress
+
+1. Obtain the LoadBalancer IP Address from your WordPress Kubernetes Service
+
+```console
+kubectl get svc --namespace osba-quickstart -w osba-quickstart-wordpress
+
+1. Open a web browser and navigate to the IP address.
+
+![Wordpress in a browser](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/wp-browser.PNG)
 
 ### Login to WordPress
 
@@ -334,7 +344,11 @@ Now navigate to the above IP address and you should see your WP homepage. Well d
     [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($password))
      ```
 
-1. Login using the username `user` and the password you just retrieved.
+1. Login using the username `user` and the password you just retrieved
+
+## Uninstall WordPress
+
+If you want to uninstall WordPress that was installed by Helm (e.g. you decided to install a different WordPress deployment), please scroll down to the section "Cleaning up".
 
 ## Well done, you've completed Campaign Mode. 
 
@@ -557,7 +571,7 @@ az ad sp delete --id http://osba-quickstart
 To tear down the AKS cluster:
 
 ```console
-az aks delete -resource-group aks-group --name osba-quickstart-cluster --no-wait
+az aks delete -resource-group [RESOURCE-GROUP-NAME] --name [NAME-OF-AKS-CLUSTER] --no-wait
 ```
 
 ## Next Steps
