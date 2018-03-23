@@ -1,6 +1,9 @@
 # The Wordpress Showdown
 ## Azure Container Service (AKS) - Wordpress on Kubernetes  
 ### Lab & challenge - Level 400
+
+![Logos](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/logos.PNG)
+
 Welcome to the Wordpress Showdown, a battle of Wordpress sites running on Kubernetes. We will be guiding you through deploying Wordpress sites on Kubernetes using the Azure Container Service (AKS), and then cover some optional (but highly recommended) pointers on optimising it, so it can go head to head against others' sites. We'll be subjecting them to load and availability testing once you've completed 'Campaign Mode' and awarding a prize to the best performing and most highly available site.
 
 Good luck!
