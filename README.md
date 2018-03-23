@@ -425,16 +425,16 @@ We can use Azure Application Insights to send web requests to our application at
 
 1. Once you've created the App Insights Resource, go onto its blade and select 'Availability', then click 'Add Test'
 1. Configure a new test using the below as a guideline:
- -**The URL** can be any web page you want to test, but it must be visible from the public internet. Point this to either your AKS cluster's DNS address or your Traffic Manager DNS if you've done Path 3 already
- -**Parse dependent requests**: If this option is checked, the test requests images, scripts, style files, and other files that are part of the web page under test. If the option is not checked, the test only requests the file at the URL you specified.
- -**Enable retries**: If this option is checked, when the test fails, it is retried after a short interval. A failure is reported only if three successive attempts fail.
- -**Test frequency**: Sets how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested on average every minute.
- -**Test locations** are the places from where our servers send web requests to your URL. Choose more than one so that you can distinguish problems in your website from network issues. You can select up to 16 locations.
- -**Success criteria**:
+ - **The URL** can be any web page you want to test, but it must be visible from the public internet. Point this to either your AKS cluster's DNS address or your Traffic Manager DNS if you've done Path 3 already
+ - **Parse dependent requests**: If this option is checked, the test requests images, scripts, style files, and other files that are part of the web page under test. If the option is not checked, the test only requests the file at the URL you specified.
+ - **Enable retries**: If this option is checked, when the test fails, it is retried after a short interval. A failure is reported only if three successive attempts fail.
+ - **Test frequency**: Sets how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested on average every minute.
+ - **Test locations** are the places from where our servers send web requests to your URL. Choose more than one so that you can distinguish problems in your website from network issues. You can select up to 16 locations.
+ - **Success criteria**:
  Test timeout: Decrease this value to be alerted about slow responses. The test is counted as a failure if the responses from your site have not been received within this period. If you selected Parse dependent requests, then all the images, style files, scripts, and other dependent resources must have been received within this period.
  HTTP response: The returned status code that is counted as a success. 200 is the code that indicates that a normal web page has been returned.
  Content match: a string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it.
- -**Alerts** are, by default, sent to you if there are failures in three locations over five minutes.
+ - **Alerts** are, by default, sent to you if there are failures in three locations over five minutes.
 
    ![AppInsightsAvail](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/AppInsightsAvail.PNG)
    
@@ -442,7 +442,7 @@ We can use Azure Application Insights to send web requests to our application at
 
 This will take a little while before it starts to show results (around 10 mins), so proceed with the next step and come back to this blade in a little while if you wish. When it's populated you should get something like the below:
 
-![AvailabilityRecords](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/AvailabilityRecords.PNG)
+![AvailabilityResults](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/AvailabilityResults.PNG)
 
 ## Using VSTS to perform Load testing to test performance
 
