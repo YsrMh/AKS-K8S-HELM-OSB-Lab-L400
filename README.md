@@ -349,7 +349,7 @@ Now navigate to the above IP address and you should see your WP homepage. Well d
 
 ## Uninstall WordPress
 
-If you want to uninstall WordPress that was installed by Helm (e.g. you decided to install a different WordPress deployment), please scroll down to the section "Cleaning up".
+If you want to uninstall WordPress that was installed by Helm (e.g. you decided to install a different WordPress deployment), please scroll down to the section "Cleaning up". You can deploy a different helm wordpress package running in parallel of another one within the same cluster, as it will provision another public ip address for it. You just need to ensure it has a different naming convention. In other words, feel free to test around without uninstalling, but uninstalling an unused container later might be a good idea as to avoid the use of unnecessary resources.
 
 ## Well done, you've completed Campaign Mode. 
 
