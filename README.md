@@ -35,8 +35,8 @@
 
 ## Cluster Setup (SKIP if you did this earlier this week when instructed)
 
-You should have already done this using the script we provided via email. But not to worry, if you haven't, just run the script below. Bear in mind that this can usually take around 10-15 minutes.
- 
+You should have already done this using the script we provided via email. But not to worry, if you haven't, just run the script below. Bear in mind that the target deployment time for AKS is 10 minutes but the typical deployment time at the moment is more like 45 minutes.
+  
 Run the following two commands in the Azure Bash Cloud Shell:
 
 ```console
