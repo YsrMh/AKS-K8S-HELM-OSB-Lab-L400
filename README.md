@@ -605,7 +605,7 @@ Now that you're armed with this knowledge, set up your endpoints using the optim
 # Time for battle
 If you haven't already, make sure you've given the proctors your live DNS name (of either your cluster's Public IP or Traffic Manager if you've set on up) so that they can pit your Wordpress site against other people's. If you've done all three paths and have some time left, keep improving your site's performance and availability where you can, but make sure you're keeping a live instance up and running as this will affect your availability score!
 
-![KubernetesBattle](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/KubernetesBattle.PNG)
+![KubernetesBattle](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/KubernetesBattle.jpg)
 
 ---
 
