@@ -364,6 +364,8 @@ Once you are online and happy with the Wordpress deployment service you have cho
 
 Now that you've got your Wordpress site up and running, there are several paths you can take to optimise it, make it highly available, and boost its performance. It's up to you which of these paths you take, and in what order, depending on what interests you. 
 
+![Paths](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/Paths.PNG)
+
 Choose wisely...
 
 # Path 1: Explore and configure Wordpress
@@ -440,7 +442,7 @@ We can use Azure Application Insights to send web requests to our application at
 
 This will take a little while before it starts to show results (around 10 mins), so proceed with the next step and come back to this blade in a little while if you wish. When it's populated you should get something like the below:
 
-    ![AvailabilityTest](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/AvailabilityTest.PNG)
+![AvailabilityRecords](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/AvailabilityRecords.PNG)
 
 ## Using VSTS to perform Load testing to test performance
 
