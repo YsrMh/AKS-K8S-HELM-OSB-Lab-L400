@@ -266,7 +266,7 @@ helm install azure/wordpress --name osba-quickstart --namespace osba-quickstart
 
 #### Option 2: Install WordPress using Azure Files as persistent storage
 
-1. Create an Azure Storage account. Although AKS can dynamically provision Azure disks, and Azure files within a storage account, you still need to provision an Azure storage account. Furthermore, Azure disks already has a Storage Class provisioned with AKS, but not for Azure Files.
+1. Create an Azure Storage account. Although AKS can dynamically provision Azure disks, and Azure file shares within a storage account, you still need to provision an Azure storage account. Furthermore, Azure disks already has a Storage Class provisioned with AKS, but not for Azure Files.
 
     >**Note:** The name of your resource group will have the prefix of MC_XXX, use this one which has all of Kubernetes Azure resources     provisioned in it. Using the resource group which only has your cluster resource in it will fail (i.e do not choose the resource     group which only shows one resoure for your K8s cluster).
 
