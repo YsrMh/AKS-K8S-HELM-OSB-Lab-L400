@@ -419,7 +419,7 @@ We can use Azure Application Insights to send web requests to our application at
 1. Head to the Azure portal and type Application Insights into the marketplace, and click 'Create'. 
 1. Fill in the parameters, selecting 'General' for your app type and the resource group and location you've been using previously
 
-   ![AppInsights](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/AppInsights.PNG)
+![AppInsights](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/AppInsights.PNG)
 
 ### Create an availability test
 
@@ -463,7 +463,13 @@ Sticking within our App Insights resource, let's configurate a performance test 
 
 That will then get queued for testing, which will take around 10-15 mins. Again, consider trying out another path and then coming back to check on this.
 
+### Check your results
+
 When your test has ran, you should get an output like so:
+
+  ![LoadTest](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/LoadTest.PNG)
+
+Hover over the line graph and you'll get the figures for specifc timestamps, including average response time and requests handled per second.
 
 Use these findings to adjust your failover strategy and scaling accordingly (see the other paths for help with this), and then come back and keep testing your improvements. Good luck!
 
