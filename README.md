@@ -53,6 +53,17 @@ curl -o ~/clouddrive/aks-create.sh https://raw.githubusercontent.com/samaea/AKS-
 sh ~/clouddrive/aks-create.sh
  ``` 
 
+## Create your team's Traffic Manager URL
+
+Now run the following script, which will set up Traffic manager. You'll need this later on.
+
+```console
+curl -o ~/clouddrive/traffic-manager.sh https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/traffic-manager.sh
+sh ~/clouddrive/traffic-manager.sh
+```
+
+>**Important**: You must run the above command before proceeding onto the next steps.
+
 ## Configure your Azure account
 
 First let's identify your Azure subscription and save it for use later on in the quickstart.
