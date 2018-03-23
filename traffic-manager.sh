@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 echo Please input your team name.
 read teamName
 
