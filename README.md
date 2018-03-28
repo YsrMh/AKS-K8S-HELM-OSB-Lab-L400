@@ -1,4 +1,4 @@
-# The Wordpress Showdown
+# War of the WordPress
 ## Azure Container Service (AKS) - Wordpress on Kubernetes  
 ### Lab & challenge - Level 400
 
