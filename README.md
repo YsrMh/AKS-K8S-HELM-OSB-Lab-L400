@@ -4,7 +4,7 @@
 
 ![Logos](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/logos.png)
 
-Welcome to the Wordpress Showdown, a battle of Wordpress sites running on Kubernetes. We will be guiding you through deploying Wordpress sites on Kubernetes using the Azure Container Service (AKS), and then cover some optional (but highly recommended) pointers on optimising it, so it can go head to head against others' sites. We'll be subjecting them to load and availability testing once you've completed 'Campaign Mode' and awarding a prize to the best performing and most highly available site.
+Welcome to War of the WordPress, a lab-based team competition of Wordpress sites running on Kubernetes. This document will guide you through deploying Wordpress sites on Kubernetes using the Azure Container Service (AKS), and then cover some optional (but highly recommended) pointers on optimising it, so it can go head to head against other team's sites. Proctors running this competition will be subjecting the sites to load and availability testing from the offset and awarding a prize to the best performing and most highly available site.
 
 Good luck!
 
@@ -36,6 +36,8 @@ Good luck!
 ## Prerequisites
 
 [If you want to use your local CLI for this lab instead of the Cloud Shell, view the pre-requisites here.](https://github.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/blob/master/Prerequisites.md)
+
+> Note: If you're a proctor, view the proctor instructions [here.](https://github.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/blob/master/Proctor-instructions.md)
 
 ---
 
