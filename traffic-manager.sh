@@ -10,4 +10,4 @@ az network traffic-manager endpoint create --profile-name aksChallenge -n Primar
 teamURL=$teamName'.trafficmanager.net'
 
 #Now trigger logic app to register deployment for tracking
-curl -d '{"URL" :"'$teamURL'"}' -H "Content-Type: application/json" -X POST 'https://prod-25.northcentralus.logic.azure.com:443/workflows/5951e14e586c407c9750e2b231760b62/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=3NbKbrZyTZkfxpdK4MLGAKdoVbLMTMc3Iz71-AobiUI'
+curl -d '{"URL" :"'$teamURL'"}' -H "Content-Type: application/json" -X POST 'https://prod-20.uksouth.logic.azure.com:443/workflows/326b67ac3ffc4195bd2def1248531a4e/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=SjCIrceqhA_6lU8ACnXm8h75XbVPAkW50w6wPOZvU7w'
