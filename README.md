@@ -2,7 +2,7 @@
 ## Azure Container Service (AKS) - Wordpress on Kubernetes  
 ### Lab & challenge - Level 400
 
-![Logos](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/logos.png)
+![Logos](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/logos.png)
 
 Welcome to War of the WordPress, a lab-based team competition of Wordpress sites running on Kubernetes. This document will guide you through deploying Wordpress sites on Kubernetes using the Azure Container Service (AKS), and then cover some optional (but highly recommended) pointers on optimising it, so it can go head to head against other team's sites. Proctors running this competition will be subjecting the sites to load and availability testing from the offset and awarding a prize to the best performing and most highly available site.
 
@@ -35,9 +35,9 @@ Good luck!
 
 ## Prerequisites
 
-[If you want to use your local CLI for this lab instead of the Cloud Shell, view the pre-requisites here.](https://github.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/blob/master/Prerequisites.md)
+[If you want to use your local CLI for this lab instead of the Cloud Shell, view the pre-requisites here.](https://github.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/blob/master/Prerequisites.md)
 
-> Note: If you're a proctor, view the proctor instructions [here.](https://github.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/blob/master/Proctor-instructions.md)
+> Note: If you're a proctor, view the proctor instructions [here.](https://github.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/blob/master/Proctor-instructions.md)
 
 ---
 
@@ -50,7 +50,7 @@ You should have already done this using the script we provided via email. But no
 Run the following two commands in the Azure Bash Cloud Shell:
 
 ```console
-curl -o ~/clouddrive/aks-create.sh https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/AKS-lab-deploy.sh
+curl -o ~/clouddrive/aks-create.sh https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/AKS-lab-deploy.sh
   
 sh ~/clouddrive/aks-create.sh
  ``` 
@@ -60,7 +60,7 @@ sh ~/clouddrive/aks-create.sh
 Now run the following script, which will set up Traffic manager. You'll need this later on.
 
 ```console
-curl -o ~/clouddrive/traffic-manager.sh https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/traffic-manager.sh
+curl -o ~/clouddrive/traffic-manager.sh https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/traffic-manager.sh
 sh ~/clouddrive/traffic-manager.sh
 ```
 
@@ -98,7 +98,7 @@ resources on your account on behalf of Kubernetes.
     ```
     >Note: If it says the name already exists, choose another name.
 
-    ![Azure Service Principal](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/ad_sp.PNG)
+    ![Azure Service Principal](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/ad_sp.PNG)
 
 1. Save the values from the command output in environment variables:
 
@@ -344,7 +344,7 @@ osba-quickstart-wordpress   1         1         1            1           18m
    
 1. Open a web browser and navigate to the IP address.
 
-   ![Wordpress in a browser](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/wp-browser.PNG)
+   ![Wordpress in a browser](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/wp-browser.PNG)
 
 ### Login to WordPress
 
@@ -389,7 +389,7 @@ Once you've done that, find your Traffic Manager that was provisioned by a scrip
 
 Now that you've got your Wordpress site up and running, there are several paths you can take to optimise it, make it highly available, and boost its performance. It's up to you which of these paths you take, and in what order, depending on what interests you. 
 
-![Paths](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/Paths.jpg)
+![Paths](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/Paths.jpg)
 
 Choose wisely...
 
@@ -444,7 +444,7 @@ We can use Azure Application Insights to send web requests to our application at
 1. Head to the Azure portal and type Application Insights into the marketplace, and click 'Create'. 
 1. Fill in the parameters, selecting 'General' for your app type and the resource group and location you've been using previously
 
-![AppInsights](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/AppInsights.PNG)
+![AppInsights](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/AppInsights.PNG)
 
 ### Create an availability test
 
@@ -461,13 +461,13 @@ We can use Azure Application Insights to send web requests to our application at
  Content match: a string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it.
  - **Alerts** are, by default, sent to you if there are failures in three locations over five minutes.
 
-   ![AppInsightsAvail](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/AppInsightsAvail.PNG)
+   ![AppInsightsAvail](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/AppInsightsAvail.PNG)
    
 ### Analyse the output
 
 This will take a little while before it starts to show results (around 10 mins), so proceed with the next step and come back to this blade in a little while if you wish. When it's populated you should get something like the below:
 
-![AvailabilityResults](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/AvailabilityResults.PNG)
+![AvailabilityResults](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/AvailabilityResults.PNG)
 
 Hover over any of the green/red dots to see the test timestamp, test duration, location, and test name. Click through any dot in the scatter plot to see the details of the test result. 
 
@@ -484,7 +484,7 @@ Sticking within our App Insights resource, let's configurate a performance test 
 1. Now click 'New Test' and click on 'Manual Test', then enter the URL for your Traffic Manager endpoint. 
 1. Select the region and amount of user load you want to test with, then click 'Run Test'
 
-  ![PerformanceTestConfig](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/PerformanceTestConfig.PNG)
+  ![PerformanceTestConfig](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/PerformanceTestConfig.PNG)
 
 That will then get queued for testing, which will take around 10-15 mins. Again, consider trying out another path and then coming back to check on this.
 
@@ -492,7 +492,7 @@ That will then get queued for testing, which will take around 10-15 mins. Again,
 
 When your test has ran, you should get an output like so:
 
-  ![LoadTest](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/LoadTest.PNG)
+  ![LoadTest](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/LoadTest.PNG)
 
 Hover over the line graph and you'll get the figures for specifc timestamps, including average response time and requests handled per second.
 
@@ -595,7 +595,7 @@ And that's it. Now, if you head to the Traffic Manager URL (you can find this on
     
 2. Repeat this a couple more times and you should find that this remains the same, because the primary endpoint is still operational.
 
-    ![nslookup1](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/Nslookup1.PNG)
+    ![nslookup1](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/Nslookup1.PNG)
 
 3. Now, let's modify our TM profile to explore this. Head back to the Azure portal, and in your Traffic Manager blade, click on `Configuration`. 
 
@@ -605,7 +605,7 @@ And that's it. Now, if you head to the Traffic Manager URL (you can find this on
 
     You should find that it alternates between the two endpoints. This is because as we haven't specified the individual weighting for our endpoints, they're both set to '1' - meaning that they have equal weighting and thus should recieve an equal amount of our requests.
 
-    ![nslookup2](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/Nslookup2.PNG)
+    ![nslookup2](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/Nslookup2.PNG)
 
 It's worth noting here that we can view how all of the various requests are being handled at a global scale in a nice visual output called Traffic View. It takes approximately 24 hours after turning this on however before this starts yielding an output, so something for you to explore after this lab!
 
@@ -614,7 +614,7 @@ Now that you're armed with this knowledge, set up your endpoints using the optim
 # Time for battle
 If you haven't already, make sure you've given the proctors your live DNS name (of either your cluster's Public IP or Traffic Manager if you've set one up) so that they can pit your Wordpress site against other people's. If you've done all three paths and have some time left, keep improving your site's performance and availability where you can, but make sure you're keeping a live instance up and running as this will affect your availability score!
 
-![KubernetesBattle](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/master/images/KubernetesBattle.jpg)
+![KubernetesBattle](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/KubernetesBattle.jpg)
 
 ---
 
