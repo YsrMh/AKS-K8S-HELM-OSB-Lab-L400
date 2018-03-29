@@ -30,6 +30,8 @@ You will need to follow the steps below to set up your own Logic App to record t
   ```
   3. Add a second step that posts the TeamName and URL dynamic parameters to a location of your choice so you can view all of the Traffic Manager endpoints. In the example below I used the Excel Connector and also posted a message in Teams:
   
+  ![Logos](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/LogicAppSetup.png)
+  
   4. Hit 'Save' which will generate a URL in the HTTP Trigger for you to use. Copy this to your clipboard.
   5. Fork this GutHub repo into your own GutHub account and edit the provisioning script (called AKS-lab-deploy.sh) to insert the Logic App URL you've got, and commit to master.
   6. Test your Logic App works by doing a test run - run the commands found at the start of the lab instructions (README.md) in your Bash Cloud Shell, entering a dummy team name. Should all go well, your Logic App will be called and your 
@@ -43,8 +45,8 @@ You will need to follow the steps below to set up your own Logic App to record t
   2. Perform availability testing from the offset, which will mean people will be more incentivised to get their sites up and running quicker and keep them available while making changes like a production website. [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-monitor-web-app-availability)
   has a great URL ping test you can use; however the minimum interval for each ping is 5 minutes. If you want less than this, we can recommend [Monitis](https://dashboard.monitis.com) as a great alternative with 1 minute ping intervals.
   
-### The rest is up to you
+### The rest is up to you!
 
 We've designed this to be a good intro to operating live services through Kubernetes on Azure, but to make this better for future iterations, we'd really appreciate your feedback, and please feel free to modify the lab as you see fit and 
-submit a pull request on our repo. This is how all great open source labs are built - by a community!
+submit a pull request on our repo. This is how all great open source labs are built - by a great community!
   
