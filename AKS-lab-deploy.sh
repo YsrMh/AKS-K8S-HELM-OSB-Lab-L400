@@ -16,7 +16,7 @@ echo Thanks $teamNameRaw. Setting up your deployment...
 teamName=$(echo $teamNameRaw | tr -d ' ')
 
 #Now trigger logic app to register deployment for tracking
-curl -d '{"TeamName" :"$teamName","URL" :"warofthewordpress-$teamName"}' -H "Content-Type: application/json" -X POST 'https://prod-20.uksouth.logic.azure.com:443/workflows/326b67ac3ffc4195bd2def1248531a4e/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=SjCIrceqhA_6lU8ACnXm8h75XbVPAkW50w6wPOZvU7w'
+curl -d '{"TeamName" :"'$teamName'","URL" :"warofthewordpress-'$teamName'"}' -H "Content-Type: application/json" -X POST 'https://prod-20.uksouth.logic.azure.com:443/workflows/326b67ac3ffc4195bd2def1248531a4e/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=SjCIrceqhA_6lU8ACnXm8h75XbVPAkW50w6wPOZvU7w'
 
 #Begin deployment
 echo Creating resource group...
