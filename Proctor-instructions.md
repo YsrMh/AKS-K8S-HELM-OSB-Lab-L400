@@ -30,7 +30,7 @@ You will need to follow the steps below to set up your own Logic App to record t
   ```
   3. Add a second step that posts the TeamName and URL dynamic parameters to a location of your choice so you can view all of the Traffic Manager endpoints. In the example below I used the Excel Connector and also posted a message in Teams:
   
-  ![Logos](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/LogicAppSetup.png)
+  ![LogicAppSetup](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/LogicAppSetup.PNG)
   
   4. Hit 'Save' which will generate a URL in the HTTP Trigger for you to use. Copy this to your clipboard.
   5. Fork this GutHub repo into your own GutHub account and edit the provisioning script (called AKS-lab-deploy.sh) to insert the Logic App URL you've got, and commit to master.
