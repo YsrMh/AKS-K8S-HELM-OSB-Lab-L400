@@ -409,7 +409,7 @@ The static html files will be served to the vast majority of your users:
 
 The [Application Insights](https://en-gb.wordpress.org/plugins/application-insights/) plugin enables you to pass it your App Insights instrumentation key (available in the Azure portal) to gain rich insights and telemetry. 
 
-![Application Insights](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/appinsights.png)
+![Application Insights](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/appinsights2.png)
 
 ## Backups
 
