@@ -43,9 +43,9 @@ Good luck!
 
 # Let's begin
 
-## Cluster Setup (SKIP if you did this earlier this week when instructed)
+## Cluster & Traffic Manager setup (SKIP if you did this earlier this week when instructed)
 
-You should have already done this using the script we provided via email. But not to worry, if you haven't, just run the script below. Bear in mind that the target deployment time for AKS is 10 minutes but the typical deployment time at the moment is more like 45 minutes.
+You should have already done this using the script we provided via email. But not to worry, if you haven't, just run the script below. Bear in mind that the target deployment time for AKS is 10 minutes but the typical deployment time at the moment is more like 20-40 minutes.
   
 Run the following two commands in the Azure Bash Cloud Shell:
 
@@ -54,17 +54,6 @@ curl -o ~/clouddrive/aks-create.sh https://raw.githubusercontent.com/samaea/AKS-
   
 sh ~/clouddrive/aks-create.sh
  ``` 
-
-## Create your team's Traffic Manager URL
-
-Now run the following script, which will set up Traffic manager. You'll need this later on.
-
-```console
-curl -o ~/clouddrive/traffic-manager.sh https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/traffic-manager.sh
-sh ~/clouddrive/traffic-manager.sh
-```
-
->**Important**: You must run the above command before proceeding onto the next steps.
 
 ## Configure your Azure account
 
