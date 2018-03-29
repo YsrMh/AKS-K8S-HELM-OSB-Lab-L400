@@ -385,7 +385,7 @@ Choose wisely...
 # Path 1: Explore and configure Wordpress
 Wordpress has over 50,000 plugins available in their marketplace that enable you to expand and customise your site in a number of ways.  Simply navigate to Plugins on the left menu, and choose 'Add New'.  Below are some suggestions for getting started - have fun!
 
-![Install Plugins](https://wordpressfilestore.blob.core.windows.net/images/installplugins.png)
+![Install Plugins](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/installplugins.png)
 
 ## Caching / Static Site Generators:
 
@@ -409,13 +409,13 @@ The static html files will be served to the vast majority of your users:
 
 The [Application Insights](https://en-gb.wordpress.org/plugins/application-insights/) plugin enables you to pass it your App Insights instrumentation key (available in the Azure portal) to gain rich insights and telemetry. 
 
-![Application Insights](https://wordpressfilestore.blob.core.windows.net/images/appinsights.png)
+![Application Insights](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/appinsights.png)
 
 ## Backups
 
 The [All-in One WP Migration](https://en-gb.wordpress.org/plugins/all-in-one-wp-migration/) plugin exports your WordPress website including the database, media files, plugins and themes with no technical knowledge required. Upload your site to a different location with a drag and drop in to WordPress.
 
-![Backups](https://wordpressfilestore.blob.core.windows.net/images/export.png)
+![Backups](https://raw.githubusercontent.com/samaea/AKS-K8S-HELM-OSB-Lab-L400/master/images/export.png)
 
 
 ---
