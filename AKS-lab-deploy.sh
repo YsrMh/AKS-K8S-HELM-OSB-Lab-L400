@@ -1,33 +1,36 @@
 #!/bin/bash
 
+#Register user's subscription for resource providers needed for AKS preview
 az provider register -n Microsoft.Network
 az provider register -n Microsoft.Storage
 az provider register -n Microsoft.Compute
 az provider register -n Microsoft.ContainerService
 
-echo Hello, please enter your first name:
-read firstName
+echo Hello, and welcome to the War of the WordPress challenge. Please enter your Team Name:
 
-echo And your surname:
-read lastName
+read teamNameRaw
 
-echo Thanks $firstName. Setting up your deployment...
+echo Thanks $teamNameRaw. Setting up your deployment...
 
-#Remove spaces from names to avoid deployment errors
-firstNameNoSpaces=$(echo $firstName | tr -d ' ')
-lastNameNoSpaces=$(echo $lastName | tr -d ' ')
+#Remove spaces from name to avoid deployment errors
+teamName=$(echo $teamNameRaw | tr -d ' ')
+
+#Now trigger logic app to register deployment for tracking
+curl -d '{"TeamName" :"'$teamName'","URL" :"warofthewordpress-'$teamName'"}' -H "Content-Type: application/json" -X POST 'https://prod-20.uksouth.logic.azure.com:443/workflows/326b67ac3ffc4195bd2def1248531a4e/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=SjCIrceqhA_6lU8ACnXm8h75XbVPAkW50w6wPOZvU7w'
 
 #Begin deployment
 echo Creating resource group...
-az group create --name AKS-$firstNameNoSpaces$lastNameNoSpaces --location westeurope
+az group create --name WarOfTheWordPress-$teamName --location eastus
 
-echo Creating AKS cluster...
-az aks create --resource-group AKS-$firstNameNoSpaces$lastNameNoSpaces --name AKSCluster-$firstNameNoSpaces$lastNameNoSpaces --node-count 1 --generate-ssh-keys
+echo Creating AKS cluster (takes a while)...
+az aks create --resource-group WarOfTheWordPress-$teamName --name AKSCluster-WarOfTheWordPress-$teamName -k "1.9.2" -s Standard_B2s --node-count 2 --generate-ssh-keys
+
+echo Creating Traffic Manager...
+az network traffic-manager profile create -n aksChallenge -g WarOfTheWordPress-$teamName --routing-method Priority --unique-dns-name warofthewordpress-$teamName
+az network traffic-manager endpoint create --profile-name WarOfTheWordPress -n Primary -g WarOfTheWordPress-$teamName --type externalEndpoints --target "microsoft.com" --priority 1
 
 echo Getting credentials...
-az aks get-credentials --resource-group AKS-$firstNameNoSpaces$lastNameNoSpaces --name AKSCluster-$firstNameNoSpaces$lastNameNoSpaces
+az aks get-credentials --resource-group WarOfTheWordPress-$teamName --name AKSCluster-$teamName
 
-echo All done. Type kubectl get nodes to see your cluster
-
-#Now trigger logic app to register their deployment for our tracking
-curl -d '{"FirstName" :"$firstNameNoSpaces","LastName" :"$lastNameNoSpaces"}' -H "Content-Type: application/json" -X POST 'https://prod-49.westeurope.logic.azure.com:443/workflows/4e254a6051a644e8b5b4c77603d71ca4/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=m4Zf_FLy20zvryNlTBdDD02XpAd9J0gbmO9vNnpRrls'
+echo All done and good to go. Good luck $teamNameRaw 
+kubectl get nodes

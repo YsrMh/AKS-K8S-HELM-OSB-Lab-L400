@@ -1,0 +1,759 @@
+apiVersion: v1
+entries:
+  azure-service-broker:
+  - apiVersion: v1
+    created: 2017-12-01T20:42:51.053207473Z
+    description: A Helm chart for the Azure Service Broker
+    digest: a605454b7a51f7ea94398a195544ba3b20562a245bfc19d602763ed68ae6fd3d
+    home: https://github.com/azure/azure-service-broker
+    keywords:
+    - azure
+    - services
+    - service broker
+    maintainers:
+    - email: kent.rancourt@microsoft.com
+      name: Kent Rancourt
+    - email: jim.zimmerman@microsoft.com
+      name: Jim Zimmerman
+    name: azure-service-broker
+    sources:
+    - https://github.com/azure/azure-service-broker
+    - https://hub.docker.com/r/microsoft/azure-service-broker/
+    tillerVersion: '>=2.7.0-rc1'
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/azure-service-broker-0.1.0.tgz
+    version: 0.1.0
+  concourse:
+  - appVersion: 3.5.0
+    created: 2018-03-20T20:40:48.00738981Z
+    description: Concourse is a simple and scalable CI system.
+    digest: 60ac35003de271edd8de2fc041b5d4ef0538b3c761a181535c074b4a3ce14e2e
+    engine: gotpl
+    home: https://concourse.ci/
+    icon: https://avatars1.githubusercontent.com/u/7809479
+    keywords:
+    - ci
+    - concourse
+    - concourse.ci
+    maintainers:
+    - email: seanmck@microsoft.com
+      name: seanmck
+    name: concourse
+    sources:
+    - https://github.com/concourse/bin
+    - https://github.com/kubernetes/charts
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/concourse-0.3.0.tgz
+    version: 0.3.0
+  - appVersion: 3.5.0
+    created: 2018-03-05T19:03:50.519817676Z
+    description: Concourse is a simple and scalable CI system.
+    digest: 23d1c3347cdd3ab17ad9becb8522dbf05a8adea4ab716082f02c108ec219f736
+    engine: gotpl
+    home: https://concourse.ci/
+    icon: https://avatars1.githubusercontent.com/u/7809479
+    keywords:
+    - ci
+    - concourse
+    - concourse.ci
+    maintainers:
+    - email: seanmck@microsoft.com
+      name: seanmck
+    name: concourse
+    sources:
+    - https://github.com/concourse/bin
+    - https://github.com/kubernetes/charts
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/concourse-0.2.0.tgz
+    version: 0.2.0
+  - appVersion: 3.5.0
+    created: 2017-12-11T16:18:42.914214825Z
+    description: Concourse is a simple and scalable CI system.
+    digest: a800576d626e56798e3819c96b658051ec16292d807773710f4b65ade1839a0f
+    engine: gotpl
+    home: https://concourse.ci/
+    icon: https://avatars1.githubusercontent.com/u/7809479
+    keywords:
+    - ci
+    - concourse
+    - concourse.ci
+    maintainers:
+    - email: seanmck@microsoft.com
+      name: seanmck
+    name: concourse
+    sources:
+    - https://github.com/concourse/bin
+    - https://github.com/kubernetes/charts
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/concourse-0.1.0.tgz
+    version: 0.1.0
+  drupal:
+  - appVersion: 8.4.2
+    created: 2018-03-20T20:40:48.009559784Z
+    description: One of the most versatile open source content management systems.
+    digest: 55389d763dd5803c5ae210f10b5a3ba482fdc711e979e9e0c14eaa6495a3f6de
+    engine: gotpl
+    home: http://www.drupal.org/
+    icon: https://bitnami.com/assets/stacks/drupal/img/drupal-stack-220x234.png
+    keywords:
+    - drupal
+    - cms
+    - blog
+    - http
+    - web
+    - application
+    - php
+    maintainers:
+    - email: containers@bitnami.com
+      name: bitnami-bot
+    name: drupal
+    sources:
+    - https://github.com/bitnami/bitnami-docker-drupal
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/drupal-0.14.0.tgz
+    version: 0.14.0
+  - appVersion: 8.4.2
+    created: 2018-03-05T17:11:24.88106044Z
+    description: One of the most versatile open source content management systems.
+    digest: d35eb2a926292bf16cf33315f7abdef98d889dc26d60e616b6920fb546310ccd
+    engine: gotpl
+    home: http://www.drupal.org/
+    icon: https://bitnami.com/assets/stacks/drupal/img/drupal-stack-220x234.png
+    keywords:
+    - drupal
+    - cms
+    - blog
+    - http
+    - web
+    - application
+    - php
+    maintainers:
+    - email: containers@bitnami.com
+      name: bitnami-bot
+    name: drupal
+    sources:
+    - https://github.com/bitnami/bitnami-docker-drupal
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/drupal-0.13.0.tgz
+    version: 0.13.0
+  - appVersion: 8.4.2
+    created: 2017-12-11T16:18:42.91639317Z
+    description: One of the most versatile open source content management systems.
+    digest: 2a4a7188cf139dc412c2ee5303dd142b3897b300b453bb7613b58ebf4d535989
+    engine: gotpl
+    home: http://www.drupal.org/
+    icon: https://bitnami.com/assets/stacks/drupal/img/drupal-stack-220x234.png
+    keywords:
+    - drupal
+    - cms
+    - blog
+    - http
+    - web
+    - application
+    - php
+    maintainers:
+    - email: containers@bitnami.com
+      name: bitnami-bot
+    name: drupal
+    sources:
+    - https://github.com/bitnami/bitnami-docker-drupal
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/drupal-0.12.0.tgz
+    version: 0.12.0
+  - appVersion: 8.4.2
+    created: 2017-12-07T01:05:14.901554396Z
+    description: One of the most versatile open source content management systems.
+    digest: 4dd605eb676db2b7b11e7ad87e1ead2d7ab431b963632048e1155b7370ed0903
+    engine: gotpl
+    home: http://www.drupal.org/
+    icon: https://bitnami.com/assets/stacks/drupal/img/drupal-stack-220x234.png
+    keywords:
+    - drupal
+    - cms
+    - blog
+    - http
+    - web
+    - application
+    - php
+    maintainers:
+    - email: containers@bitnami.com
+      name: bitnami-bot
+    name: drupal
+    sources:
+    - https://github.com/bitnami/bitnami-docker-drupal
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/drupal-0.11.0.tgz
+    version: 0.11.0
+  ghost:
+  - appVersion: 1.17.3
+    created: 2018-03-20T20:40:48.010582522Z
+    description: A simple, powerful publishing platform that allows you to share your
+      stories with the world
+    digest: d80ff352f48f5e6deafd01f934599c7fecb116d4a1befb16c706a557f55d14ab
+    engine: gotpl
+    home: http://www.ghost.org/
+    icon: https://bitnami.com/assets/stacks/ghost/img/ghost-stack-220x234.png
+    keywords:
+    - ghost
+    - blog
+    - http
+    - web
+    - application
+    - nodejs
+    - javascript
+    maintainers:
+    - email: ritazh@microsoft.com
+      name: Rita Zhang
+    name: ghost
+    sources:
+    - https://github.com/bitnami/bitnami-docker-ghost
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/ghost-0.4.0.tgz
+    version: 0.4.0
+  - appVersion: 1.17.3
+    created: 2018-03-05T18:58:12.751389749Z
+    description: A simple, powerful publishing platform that allows you to share your
+      stories with the world
+    digest: 9d2ee148ef0073c6e2a19a6772d0549e68f16f858989813c0f437b93285333e4
+    engine: gotpl
+    home: http://www.ghost.org/
+    icon: https://bitnami.com/assets/stacks/ghost/img/ghost-stack-220x234.png
+    keywords:
+    - ghost
+    - blog
+    - http
+    - web
+    - application
+    - nodejs
+    - javascript
+    maintainers:
+    - email: ritazh@microsoft.com
+      name: Rita Zhang
+    name: ghost
+    sources:
+    - https://github.com/bitnami/bitnami-docker-ghost
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/ghost-0.3.0.tgz
+    version: 0.3.0
+  - appVersion: 1.17.3
+    created: 2017-12-11T16:18:42.918399241Z
+    description: A simple, powerful publishing platform that allows you to share your
+      stories with the world
+    digest: 12ffc33e1c754bb70686a4b249f903e02a6cff288cbf0f02d432734a1eb6067f
+    engine: gotpl
+    home: http://www.ghost.org/
+    icon: https://bitnami.com/assets/stacks/ghost/img/ghost-stack-220x234.png
+    keywords:
+    - ghost
+    - blog
+    - http
+    - web
+    - application
+    - nodejs
+    - javascript
+    maintainers:
+    - email: ritazh@microsoft.com
+      name: Rita Zhang
+    name: ghost
+    sources:
+    - https://github.com/bitnami/bitnami-docker-ghost
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/ghost-0.2.0.tgz
+    version: 0.2.0
+  - appVersion: 1.17.3
+    created: 2017-12-07T03:39:55.368080416Z
+    description: A simple, powerful publishing platform that allows you to share your
+      stories with the world
+    digest: bc6437eeca402d0cba4d694e6f6f52f07ce291f62a4805e66eb4c923441faeb7
+    engine: gotpl
+    home: http://www.ghost.org/
+    icon: https://bitnami.com/assets/stacks/ghost/img/ghost-stack-220x234.png
+    keywords:
+    - ghost
+    - blog
+    - http
+    - web
+    - application
+    - nodejs
+    - javascript
+    maintainers:
+    - email: ritazh@microsoft.com
+      name: Rita Zhang
+    name: ghost
+    sources:
+    - https://github.com/bitnami/bitnami-docker-ghost
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/ghost-0.1.0.tgz
+    version: 0.1.0
+  meta-azure-service-broker-classic:
+  - apiVersion: v1
+    appVersion: 474bdfb (v1.2.1+)
+    created: 2017-10-30T21:43:33.242183294Z
+    description: A Helm chart for the Meta Azure Service Broker
+    digest: e5bc0af40b4a8371be3ef379aec1509a5b826f5a2cdfb1f77c096a51c683e9e2
+    home: https://github.com/azure/meta-azure-service-broker
+    keywords:
+    - azure
+    - services
+    - service broker
+    maintainers:
+    - email: kent.rancourt@microsoft.com
+      name: Kent Rancourt
+    name: meta-azure-service-broker-classic
+    sources:
+    - https://github.com/azure/meta-azure-service-broker
+    - https://hub.docker.com/r/microsoft/meta-azure-service-broker/
+    tillerVersion: '>=2.4.2'
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/meta-azure-service-broker-classic-0.1.0.tgz
+    version: 0.1.0
+  open-service-broker-azure:
+  - apiVersion: v1
+    appVersion: v0.9.0-alpha
+    created: 2018-03-20T20:40:48.011591942Z
+    description: A Helm chart for Open Service Broker For Azure
+    digest: f4d57e935c0baccd03b074e56afef96558b23650aa209441683c3719aa0f5e08
+    home: https://github.com/azure/open-service-broker-azure
+    keywords:
+    - azure
+    - services
+    - service broker
+    maintainers:
+    - email: kent.rancourt@microsoft.com
+      name: Kent Rancourt
+    - email: jim.zimmerman@microsoft.com
+      name: Jim Zimmerman
+    name: open-service-broker-azure
+    sources:
+    - https://github.com/azure/open-service-broker-azure
+    - https://hub.docker.com/r/microsoft/azure-service-broker/
+    tillerVersion: '>=2.7.0-rc1'
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/open-service-broker-azure-0.7.0.tgz
+    version: 0.7.0
+  - apiVersion: v1
+    appVersion: v0.8.0-alpha
+    created: 2018-02-07T17:49:55.895843056Z
+    description: A Helm chart for Open Service Broker For Azure
+    digest: 8b76a4759653e7005fc66e358e3761fb8af875cca799eca406965fa53b5933cf
+    home: https://github.com/azure/open-service-broker-azure
+    keywords:
+    - azure
+    - services
+    - service broker
+    maintainers:
+    - email: kent.rancourt@microsoft.com
+      name: Kent Rancourt
+    - email: jim.zimmerman@microsoft.com
+      name: Jim Zimmerman
+    name: open-service-broker-azure
+    sources:
+    - https://github.com/azure/open-service-broker-azure
+    - https://hub.docker.com/r/microsoft/azure-service-broker/
+    tillerVersion: '>=2.7.0-rc1'
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/open-service-broker-azure-0.6.0.tgz
+    version: 0.6.0
+  - apiVersion: v1
+    appVersion: v0.7.0-alpha
+    created: 2018-01-24T19:48:32.790113908Z
+    description: A Helm chart for Open Service Broker For Azure
+    digest: c50319c9183091db244725383389ec5f630b984691c520694a0058f0c0443f20
+    home: https://github.com/azure/open-service-broker-azure
+    keywords:
+    - azure
+    - services
+    - service broker
+    maintainers:
+    - email: kent.rancourt@microsoft.com
+      name: Kent Rancourt
+    - email: jim.zimmerman@microsoft.com
+      name: Jim Zimmerman
+    name: open-service-broker-azure
+    sources:
+    - https://github.com/azure/open-service-broker-azure
+    - https://hub.docker.com/r/microsoft/azure-service-broker/
+    tillerVersion: '>=2.7.0-rc1'
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/open-service-broker-azure-0.5.0.tgz
+    version: 0.5.0
+  - apiVersion: v1
+    appVersion: v0.6.0-alpha
+    created: 2018-01-09T16:42:55.52288087Z
+    description: A Helm chart for Open Service Broker For Azure
+    digest: b07101bb9ac3a4a0851c9fbab616f766f59dd974c3436e32c954b22dd57e021a
+    home: https://github.com/azure/open-service-broker-azure
+    keywords:
+    - azure
+    - services
+    - service broker
+    maintainers:
+    - email: kent.rancourt@microsoft.com
+      name: Kent Rancourt
+    - email: jim.zimmerman@microsoft.com
+      name: Jim Zimmerman
+    name: open-service-broker-azure
+    sources:
+    - https://github.com/azure/open-service-broker-azure
+    - https://hub.docker.com/r/microsoft/azure-service-broker/
+    tillerVersion: '>=2.7.0-rc1'
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/open-service-broker-azure-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v1
+    appVersion: v0.5.0-alpha
+    created: 2017-12-21T04:36:12.248632808Z
+    description: A Helm chart for Open Service Broker For Azure
+    digest: 771186a2524ff4e2036ab1e6cb0f8f755ea86529765fa116acfa49b481fb7c12
+    home: https://github.com/azure/open-service-broker-azure
+    keywords:
+    - azure
+    - services
+    - service broker
+    maintainers:
+    - email: kent.rancourt@microsoft.com
+      name: Kent Rancourt
+    - email: jim.zimmerman@microsoft.com
+      name: Jim Zimmerman
+    name: open-service-broker-azure
+    sources:
+    - https://github.com/azure/open-service-broker-azure
+    - https://hub.docker.com/r/microsoft/azure-service-broker/
+    tillerVersion: '>=2.7.0-rc1'
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/open-service-broker-azure-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v1
+    appVersion: v0.4.0-alpha
+    created: 2017-12-20T19:18:33.015753126Z
+    description: A Helm chart for Open Service Broker For Azure
+    digest: 21184cf8bd1c7ec3cbb826725bfc399644556dc56d4bd78ebac707bc60bf4c6e
+    home: https://github.com/azure/open-service-broker-azure
+    keywords:
+    - azure
+    - services
+    - service broker
+    maintainers:
+    - email: kent.rancourt@microsoft.com
+      name: Kent Rancourt
+    - email: jim.zimmerman@microsoft.com
+      name: Jim Zimmerman
+    name: open-service-broker-azure
+    sources:
+    - https://github.com/azure/open-service-broker-azure
+    - https://hub.docker.com/r/microsoft/azure-service-broker/
+    tillerVersion: '>=2.7.0-rc1'
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/open-service-broker-azure-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v1
+    created: 2017-12-04T19:31:25.079830654Z
+    description: A Helm chart for Open Service Broker For Azure
+    digest: 962b69251bb7ab347a6bef61c67971ee8c1981567630aa097bceaad455b9abbc
+    home: https://github.com/azure/open-service-broker-azure
+    keywords:
+    - azure
+    - services
+    - service broker
+    maintainers:
+    - email: kent.rancourt@microsoft.com
+      name: Kent Rancourt
+    - email: jim.zimmerman@microsoft.com
+      name: Jim Zimmerman
+    name: open-service-broker-azure
+    sources:
+    - https://github.com/azure/open-service-broker-azure
+    - https://hub.docker.com/r/microsoft/azure-service-broker/
+    tillerVersion: '>=2.7.0-rc1'
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/open-service-broker-azure-0.1.0.tgz
+    version: 0.1.0
+  phpbb:
+  - appVersion: 3.2.1-r2
+    created: 2018-03-20T20:40:48.012614348Z
+    description: Community forum that supports the notion of users and groups, file
+      attachments, full-text search, notifications and more.
+    digest: c73452aca767734a63b0564027426d712cce82130753bee3fec8d80be705e8fb
+    engine: gotpl
+    home: https://www.phpbb.com/
+    icon: https://bitnami.com/assets/stacks/phpbb/img/phpbb-stack-220x234.png
+    keywords:
+    - phpbb
+    - forum
+    - http
+    - php
+    maintainers:
+    - email: juliens@microsoft.com
+      name: Julien Stroheker
+    - email: jeremy.rickard@microsoft.com
+      name: Jeremy Rickard
+    name: phpbb
+    sources:
+    - https://github.com/bitnami/bitnami-docker-phpbb
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/phpbb-0.4.0.tgz
+    version: 0.4.0
+  - appVersion: 3.2.1-r2
+    created: 2018-03-05T18:07:10.53009235Z
+    description: Community forum that supports the notion of users and groups, file
+      attachments, full-text search, notifications and more.
+    digest: 8be3d5af431db26fccb10bf12cd32c45990d4c7d50cea974e23045c460a22f03
+    engine: gotpl
+    home: https://www.phpbb.com/
+    icon: https://bitnami.com/assets/stacks/phpbb/img/phpbb-stack-220x234.png
+    keywords:
+    - phpbb
+    - forum
+    - http
+    - php
+    maintainers:
+    - email: juliens@microsoft.com
+      name: Julien Stroheker
+    - email: jeremy.rickard@microsoft.com
+      name: Jeremy Rickard
+    name: phpbb
+    sources:
+    - https://github.com/bitnami/bitnami-docker-phpbb
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/phpbb-0.3.0.tgz
+    version: 0.3.0
+  - appVersion: 3.2.1-r2
+    created: 2017-12-11T16:18:42.922156704Z
+    description: Community forum that supports the notion of users and groups, file
+      attachments, full-text search, notifications and more.
+    digest: b37e1dc159302e875e151a1a712be5ec4d15bd324405f4d97a70a7a8b20ec671
+    engine: gotpl
+    home: https://www.phpbb.com/
+    icon: https://bitnami.com/assets/stacks/phpbb/img/phpbb-stack-220x234.png
+    keywords:
+    - phpbb
+    - forum
+    - http
+    - php
+    maintainers:
+    - email: juliens@microsoft.com
+      name: Julien Stroheker
+    - email: jeremy.rickard@microsoft.com
+      name: Jeremy Rickard
+    name: phpbb
+    sources:
+    - https://github.com/bitnami/bitnami-docker-phpbb
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/phpbb-0.2.0.tgz
+    version: 0.2.0
+  - appVersion: 3.2.1
+    created: 2017-12-07T03:48:46.92899127Z
+    description: Community forum that supports the notion of users and groups, file
+      attachments, full-text search, notifications and more.
+    digest: 6f661c1525a216a37e014f5d2b9b5fb0fe5b86915a2d63893204bc82a428b05a
+    engine: gotpl
+    home: https://www.phpbb.com/
+    icon: https://bitnami.com/assets/stacks/phpbb/img/phpbb-stack-220x234.png
+    keywords:
+    - phpbb
+    - forum
+    - http
+    - php
+    maintainers:
+    - email: juliens@microsoft.com
+      name: Julien Stroheker
+    name: phpbb
+    sources:
+    - https://github.com/bitnami/bitnami-docker-phpbb
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/phpbb-0.1.0.tgz
+    version: 0.1.0
+  wordpress:
+  - appVersion: 4.9.4
+    created: 2018-03-20T20:40:48.013790362Z
+    description: Web publishing platform for building blogs and websites.
+    digest: 841612de1d5d90f4e7e02efd9b4b703f845c2b66f737ccd2ae1f1083aaa048d3
+    engine: gotpl
+    home: http://www.wordpress.com/
+    icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
+    keywords:
+    - wordpress
+    - cms
+    - blog
+    - http
+    - web
+    - application
+    - php
+    maintainers:
+    - email: kent.rancourt@microsoft.com
+      name: Kent Rancourt
+    name: wordpress
+    sources:
+    - https://github.com/bitnami/bitnami-docker-wordpress
+    urls:
+    - https://github.com/samaea/AKS-K8S-HELM-OSB-Lab-L200/raw/master/helm/wordpress-0.9.0.tgz
+    version: 0.9.0
+  - appVersion: 4.9.4
+    created: 2018-03-02T15:34:18.608982134Z
+    description: Web publishing platform for building blogs and websites.
+    digest: 48ac40908ca837363fab19ed871aebd139c6cf12bef68806db2c9f934b11b71e
+    engine: gotpl
+    home: http://www.wordpress.com/
+    icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
+    keywords:
+    - wordpress
+    - cms
+    - blog
+    - http
+    - web
+    - application
+    - php
+    maintainers:
+    - email: kent.rancourt@microsoft.com
+      name: Kent Rancourt
+    name: wordpress
+    sources:
+    - https://github.com/bitnami/bitnami-docker-wordpress
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/wordpress-0.8.1.tgz
+    version: 0.8.1
+  - appVersion: 4.9.2
+    created: 2018-02-23T21:55:50.710047126Z
+    description: Web publishing platform for building blogs and websites.
+    digest: 1e51be59cc906396bc2a351b2c5671d3e5cd1743968a8bdf329f7fb10a0efec2
+    engine: gotpl
+    home: http://www.wordpress.com/
+    icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
+    keywords:
+    - wordpress
+    - cms
+    - blog
+    - http
+    - web
+    - application
+    - php
+    maintainers:
+    - email: kent.rancourt@microsoft.com
+      name: Kent Rancourt
+    name: wordpress
+    sources:
+    - https://github.com/bitnami/bitnami-docker-wordpress
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/wordpress-0.8.0.tgz
+    version: 0.8.0
+  - appVersion: 4.8.1
+    created: 2018-01-18T19:48:33.473130039Z
+    description: Web publishing platform for building blogs and websites.
+    digest: a389468879cd50c066ff4cc11577ca71c949b732305a9e4186f25acb57942cc8
+    engine: gotpl
+    home: http://www.wordpress.com/
+    icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
+    keywords:
+    - wordpress
+    - cms
+    - blog
+    - http
+    - web
+    - application
+    - php
+    maintainers:
+    - email: kent.rancourt@microsoft.com
+      name: Kent Rancourt
+    name: wordpress
+    sources:
+    - https://github.com/bitnami/bitnami-docker-wordpress
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/wordpress-0.7.0.tgz
+    version: 0.7.0
+  - appVersion: 4.8.1
+    created: 2017-11-07T20:20:35.090883984Z
+    description: Web publishing platform for building blogs and websites.
+    digest: a46c4357fbb74c514b6ac1efb69be69b37be5edff241e034c275119849fe8465
+    engine: gotpl
+    home: http://www.wordpress.com/
+    icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
+    keywords:
+    - wordpress
+    - cms
+    - blog
+    - http
+    - web
+    - application
+    - php
+    maintainers:
+    - email: containers@bitnami.com
+      name: bitnami-bot
+    name: wordpress
+    sources:
+    - https://github.com/bitnami/bitnami-docker-wordpress
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/wordpress-0.6.12.tgz
+    version: 0.6.12
+  - appVersion: 4.8.1
+    created: 2017-12-18T16:04:07.05386007Z
+    description: Web publishing platform for building blogs and websites.
+    digest: 73542035b37f423c386f45cfa7de5c8ad4c6ece82b09d378528fcf6d22c59ae5
+    engine: gotpl
+    home: http://www.wordpress.com/
+    icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
+    keywords:
+    - wordpress
+    - cms
+    - blog
+    - http
+    - web
+    - application
+    - php
+    maintainers:
+    - email: kent.rancourt@microsoft.com
+      name: Kent Rancourt
+    name: wordpress
+    sources:
+    - https://github.com/bitnami/bitnami-docker-wordpress
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/wordpress-0.3.0.tgz
+    version: 0.3.0
+  - appVersion: 4.8.1
+    created: 2017-12-11T16:18:42.92414279Z
+    description: Web publishing platform for building blogs and websites.
+    digest: 0ee5c64618ac143568e09e2b95b95c7c1384d6ab928a90f3ea6feed237137a97
+    engine: gotpl
+    home: http://www.wordpress.com/
+    icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
+    keywords:
+    - wordpress
+    - cms
+    - blog
+    - http
+    - web
+    - application
+    - php
+    maintainers:
+    - email: kent.rancourt@microsoft.com
+      name: Kent Rancourt
+    name: wordpress
+    sources:
+    - https://github.com/bitnami/bitnami-docker-wordpress
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/wordpress-0.2.0.tgz
+    version: 0.2.0
+  - appVersion: 4.8.1
+    created: 2017-12-06T20:01:33.651644976Z
+    description: Web publishing platform for building blogs and websites.
+    digest: eb331169d10366d6a63e2e2364875ba6506f49b5e6fe029a785b53855b0bb2b3
+    engine: gotpl
+    home: http://www.wordpress.com/
+    icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
+    keywords:
+    - wordpress
+    - cms
+    - blog
+    - http
+    - web
+    - application
+    - php
+    maintainers:
+    - email: kent.rancourt@microsoft.com
+      name: Kent Rancourt
+    name: wordpress
+    sources:
+    - https://github.com/bitnami/bitnami-docker-wordpress
+    urls:
+    - https://kubernetescharts.blob.core.windows.net/azure/wordpress-0.1.0.tgz
+    version: 0.1.0
+generated: 2018-03-20T20:40:48.005075413Z
